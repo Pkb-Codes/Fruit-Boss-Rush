@@ -11,11 +11,13 @@ public class playerHealthScript : MonoBehaviour
     private int currentHealth;
     private Color originalColor; // to make the enemy flash red (will be removed when sprites are added)
     private SpriteRenderer spriterenderer;
+    private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHealth = maxHealth;
         spriterenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
         originalColor = spriterenderer.color; // to make the enemy flash red (will be removed when sprites are added)
         flashTimer = flashTime; // to make the enemy flash red (will be removed when sprites are added)
     }
