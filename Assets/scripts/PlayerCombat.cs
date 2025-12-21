@@ -57,9 +57,14 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             // makes each enemy take damage
-            enemy.GetComponent<EnemyHealthScript>().TakeDamage(attackDamage);
-            enemy.GetComponent<EnemyHealthScript>().Knockback(facingDirection, knockbackForce);
+            enemy.GetComponentInParent<EnemyHealthScript>().TakeDamage(attackDamage);
+            enemy.GetComponentInParent<EnemyHealthScript>().Knockback(facingDirection, knockbackForce);
         }
+    }
+
+    void SpinSlash()
+    {
+        
     }
 
     private void OnDrawGizmosSelected()

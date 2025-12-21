@@ -69,5 +69,10 @@ public class EnemyHealthScript : MonoBehaviour
         //make the enemy die
         spriterenderer.enabled = false;
         boxCollider.enabled = false;
+
+        //disabling the hands hitboxes
+        transform.Find("lefthandHitbox").gameObject.SetActive(false);
+        transform.Find("righthandHitbox").gameObject.SetActive(false);
+
     }
 }
