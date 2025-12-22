@@ -29,8 +29,8 @@ public class PlayerCombat : MonoBehaviour
 
         if(timer > attackCooldown && Input.GetKey(KeyCode.I))
         {
-            Attack();
             timer = 0f;
+            Attack();
         }
 
 
@@ -44,8 +44,8 @@ public class PlayerCombat : MonoBehaviour
             facingDirection = 1;
         }
 
-        //to move the attackpoint to the same offset in the other direction;
-        attackPoint.localPosition = new Vector3(Mathf.Abs(attackPointOffset.x) * facingDirection, attackPointOffset.y, attackPointOffset.z);
+        
+        
     }
 
 
