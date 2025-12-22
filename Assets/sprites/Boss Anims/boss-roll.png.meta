@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: a5bc491202b898f4fa4ad24183f841ec
+guid: d6956ba24f6bfe443a4cd59c1c181aa5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4689240166119133576
-    second: pixilart-sprite_0
+      213: -1081529157736232549
+    second: boss-roll_0
   - first:
-      213: 4521018998857404175
-    second: pixilart-sprite_1
+      213: 6921045038977835798
+    second: boss-roll_1
   - first:
-      213: -4621546931983276131
-    second: pixilart-sprite_2
+      213: 2728630044064338263
+    second: boss-roll_2
   - first:
-      213: 713319685308842295
-    second: pixilart-sprite_3
+      213: -7668318125888749232
+    second: boss-roll_3
+  - first:
+      213: 7454072064202478949
+    second: boss-roll_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixilart-sprite_0
+      name: boss-roll_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 73
-        width: 554
-        height: 349
+        x: 21
+        y: 13
+        width: 63
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88156002617831140800000000000000
-      internalID: 4689240166119133576
+      spriteID: b9987e216f2adf0f0800000000000000
+      internalID: -1081529157736232549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixilart-sprite_1
+      name: boss-roll_1
       rect:
         serializedVersion: 2
-        x: 581
-        y: 73
-        width: 554
-        height: 334
+        x: 124
+        y: 12
+        width: 59
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0f00b973d2edbe30800000000000000
-      internalID: 4521018998857404175
+      spriteID: 613e0ce2bcd7c0060800000000000000
+      internalID: 6921045038977835798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixilart-sprite_2
+      name: boss-roll_2
       rect:
         serializedVersion: 2
-        x: 1158
-        y: 73
-        width: 554
-        height: 318
+        x: 221
+        y: 14
+        width: 63
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9727562d87fcdfb0800000000000000
-      internalID: -4621546931983276131
+      spriteID: 751d9e3719a0ed520800000000000000
+      internalID: 2728630044064338263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixilart-sprite_3
+      name: boss-roll_3
       rect:
         serializedVersion: 2
-        x: 1735
-        y: 73
-        width: 554
-        height: 334
+        x: 323
+        y: 12
+        width: 60
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +193,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7318026797836e900800000000000000
-      internalID: 713319685308842295
+      spriteID: 05146b10b49a49590800000000000000
+      internalID: -7668318125888749232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-roll_4
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 13
+        width: 63
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56593fc8c0f227760800000000000000
+      internalID: 7454072064202478949
       vertices: []
       indices: 
       edges: []
@@ -210,10 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pixilart-sprite_0: 4689240166119133576
-      pixilart-sprite_1: 4521018998857404175
-      pixilart-sprite_2: -4621546931983276131
-      pixilart-sprite_3: 713319685308842295
+      boss-roll_0: -1081529157736232549
+      boss-roll_1: 6921045038977835798
+      boss-roll_2: 2728630044064338263
+      boss-roll_3: -7668318125888749232
+      boss-roll_4: 7454072064202478949
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,7 +10,7 @@ public class PlayerCombat : MonoBehaviour
     public int attackDamage = 20;
     public int knockbackForce = 2;
     public LayerMask enemyLayer;
-    public float attackCooldown = 5f;
+    public float attackCooldown = 3f;
 
 
     private float timer = 0f;
@@ -27,7 +27,7 @@ public class PlayerCombat : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer > attackCooldown && Input.GetKeyDown(KeyCode.I))
+        if(timer > attackCooldown && Input.GetKey(KeyCode.I))
         {
             Attack();
             timer = 0f;
@@ -57,8 +57,8 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             // makes each enemy take damage
-            enemy.GetComponentInParent<EnemyHealthScript>().TakeDamage(attackDamage);
-            enemy.GetComponentInParent<EnemyHealthScript>().Knockback(facingDirection, knockbackForce);
+            enemy.GetComponent<EnemyHealthScript>().TakeDamage(attackDamage);
+            enemy.GetComponent<EnemyHealthScript>().Knockback(facingDirection, knockbackForce);
         }
     }
 

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: fa3eadb9f63732d48850e1877349daeb
+guid: 05eee261d2137d04e8758e145bfd5e8f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2424553518018739129
-    second: boss_0
+      213: -2329597011918710505
+    second: boss-braceforimpact_0
+  - first:
+      213: -9019763504171246579
+    second: boss-braceforimpact_1
+  - first:
+      213: 5498869090397505176
+    second: boss-braceforimpact_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss_0
+      name: boss-braceforimpact_0
       rect:
         serializedVersion: 2
         x: 3
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 744c193db614a5ed0800000000000000
-      internalID: -2424553518018739129
+      spriteID: 71916c24cdb9bafd0800000000000000
+      internalID: -2329597011918710505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-braceforimpact_1
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 8
+        width: 71
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c17d7b1ec53d280800000000000000
+      internalID: -9019763504171246579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-braceforimpact_2
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 13
+        width: 63
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 896c48fad48ef4c40800000000000000
+      internalID: 5498869090397505176
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      boss_0: -2424553518018739129
+      boss-braceforimpact_0: -2329597011918710505
+      boss-braceforimpact_1: -9019763504171246579
+      boss-braceforimpact_2: 5498869090397505176
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

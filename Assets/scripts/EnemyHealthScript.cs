@@ -7,8 +7,8 @@ using UnityEngine.U2D;
 public class EnemyHealthScript : MonoBehaviour
 {
 
-    public int maxHealth = 100;
-    private int currentHealth;
+    public int maxHealth = 300;
+    public int currentHealth;
     public float flashTime = 1f; // to make the enemy flash red (will be removed when sprites are added)
     private float flashTimer; // to make the enemy flash red (will be removed when sprites are added)
     private bool isFlash = false; // to make the enemy flash red (will be removed when sprites are added)
@@ -36,7 +36,7 @@ public class EnemyHealthScript : MonoBehaviour
         // to make the enemy flash red (will be removed when sprites are added)
         if(isFlash)
         {
-            spriterenderer.color = Color.red;
+            spriterenderer.color = Color.black;
             flashTimer -= Time.deltaTime;
             if(flashTimer <= 0f)
             {
@@ -71,8 +71,8 @@ public class EnemyHealthScript : MonoBehaviour
         boxCollider.enabled = false;
 
         //disabling the hands hitboxes
-        transform.Find("lefthandHitbox").gameObject.SetActive(false);
-        transform.Find("righthandHitbox").gameObject.SetActive(false);
+        // transform.Find("lefthandHitbox").gameObject.SetActive(false);
+        // transform.Find("righthandHitbox").gameObject.SetActive(false);
 
     }
 }
