@@ -8,6 +8,7 @@ public class EnemyHealthScript : MonoBehaviour
 {
 
     public int maxHealth = 300;
+    public int spinslashDamage = 2;
     public int currentHealth;
     public float flashTime = 1f; // to make the enemy flash red (will be removed when sprites are added)
     private float flashTimer; // to make the enemy flash red (will be removed when sprites are added)
@@ -45,6 +46,8 @@ public class EnemyHealthScript : MonoBehaviour
                 flashTimer = flashTime;
             }
         }
+
+
     }
 
     public void TakeDamage(int damage)
@@ -75,4 +78,13 @@ public class EnemyHealthScript : MonoBehaviour
         // transform.Find("righthandHitbox").gameObject.SetActive(false);
 
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+{
+    // Check if the thing that entered is the spin slasher
+    if (other.CompareTag("spinslasher"))
+    {
+        TakeDamage(spinslashDamage);
+    }
+}
 }
