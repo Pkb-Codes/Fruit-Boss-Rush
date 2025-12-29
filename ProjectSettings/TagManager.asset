@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - wall
   - spinslasher
+  - respawnmanager
   layers:
   - Default
   - TransparentFX

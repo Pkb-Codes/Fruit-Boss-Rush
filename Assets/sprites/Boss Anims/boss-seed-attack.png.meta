@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 38990f1a6ff82d349b3300319a551185
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8100486373656703801
+    second: boss-seed-attack_0
+  - first:
+      213: 3075995037240716169
+    second: boss-seed-attack_1
+  - first:
+      213: -3065935824726754145
+    second: boss-seed-attack_2
+  - first:
+      213: -195674132702261651
+    second: boss-seed-attack_3
+  - first:
+      213: -5203335039359882201
+    second: boss-seed-attack_4
+  - first:
+      213: 3504878226700064331
+    second: boss-seed-attack_5
+  - first:
+      213: 2445842273353860925
+    second: boss-seed-attack_6
+  - first:
+      213: -1175249169015445562
+    second: boss-seed-attack_7
+  - first:
+      213: 8331397664792082879
+    second: boss-seed-attack_8
+  - first:
+      213: 5808678620368989177
+    second: boss-seed-attack_9
+  - first:
+      213: 5809872669996706998
+    second: boss-seed-attack_10
+  - first:
+      213: 1769551248319285673
+    second: boss-seed-attack_11
+  - first:
+      213: -1463872517974165569
+    second: boss-seed-attack_12
+  - first:
+      213: 1552013566228622146
+    second: boss-seed-attack_13
+  - first:
+      213: 4640416213044674279
+    second: boss-seed-attack_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boss-seed-attack_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 18
+        width: 96
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cccc46bf8a459f80800000000000000
+      internalID: -8100486373656703801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 16
+        width: 60
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98be895603120ba20800000000000000
+      internalID: 3075995037240716169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_2
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 16
+        width: 59
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c74078c9b9375d0800000000000000
+      internalID: -3065935824726754145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_3
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 16
+        width: 59
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e8c8cb963d84df0800000000000000
+      internalID: -195674132702261651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_4
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 16
+        width: 59
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72c6c93a95a0ac7b0800000000000000
+      internalID: -5203335039359882201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_5
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 16
+        width: 59
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4655737d24d3a030800000000000000
+      internalID: 3504878226700064331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_6
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 16
+        width: 59
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3704e7c69061f120800000000000000
+      internalID: 2445842273353860925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_7
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 16
+        width: 59
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c7e2468b1da0bfe0800000000000000
+      internalID: -1175249169015445562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_8
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 16
+        width: 59
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb97374d8021f9370800000000000000
+      internalID: 8331397664792082879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_9
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 16
+        width: 59
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fbef75fd629c9050800000000000000
+      internalID: 5808678620368989177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_10
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 16
+        width: 59
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc676d4960d0a050800000000000000
+      internalID: 5809872669996706998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_11
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 16
+        width: 63
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a98bef1c75be8810800000000000000
+      internalID: 1769551248319285673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_12
+      rect:
+        serializedVersion: 2
+        x: 1715
+        y: 16
+        width: 69
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb771b963b74fabe0800000000000000
+      internalID: -1463872517974165569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_13
+      rect:
+        serializedVersion: 2
+        x: 1864
+        y: 16
+        width: 60
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24be4a59d1cd98510800000000000000
+      internalID: 1552013566228622146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-attack_14
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 18
+        width: 96
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eebd74b5f1166040800000000000000
+      internalID: 4640416213044674279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      boss-seed-attack_0: -8100486373656703801
+      boss-seed-attack_1: 3075995037240716169
+      boss-seed-attack_10: 5809872669996706998
+      boss-seed-attack_11: 1769551248319285673
+      boss-seed-attack_12: -1463872517974165569
+      boss-seed-attack_13: 1552013566228622146
+      boss-seed-attack_14: 4640416213044674279
+      boss-seed-attack_2: -3065935824726754145
+      boss-seed-attack_3: -195674132702261651
+      boss-seed-attack_4: -5203335039359882201
+      boss-seed-attack_5: 3504878226700064331
+      boss-seed-attack_6: 2445842273353860925
+      boss-seed-attack_7: -1175249169015445562
+      boss-seed-attack_8: 8331397664792082879
+      boss-seed-attack_9: 5808678620368989177
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

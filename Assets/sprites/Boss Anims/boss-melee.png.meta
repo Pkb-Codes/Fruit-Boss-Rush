@@ -121,7 +121,7 @@ TextureImporter:
       name: boss-melee_0
       rect:
         serializedVersion: 2
-        x: 23
+        x: 33
         y: 8
         width: 96
         height: 65
@@ -143,10 +143,10 @@ TextureImporter:
       name: boss-melee_1
       rect:
         serializedVersion: 2
-        x: 153
-        y: 8
-        width: 106
-        height: 65
+        x: 193
+        y: 12
+        width: 89
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: boss-melee_2
       rect:
         serializedVersion: 2
-        x: 292
-        y: 8
-        width: 107
-        height: 65
+        x: 353
+        y: 12
+        width: 87
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +187,10 @@ TextureImporter:
       name: boss-melee_3
       rect:
         serializedVersion: 2
-        x: 432
-        y: 8
-        width: 107
-        height: 65
+        x: 512
+        y: 11
+        width: 88
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +209,10 @@ TextureImporter:
       name: boss-melee_4
       rect:
         serializedVersion: 2
-        x: 572
+        x: 673
         y: 13
-        width: 120
-        height: 60
+        width: 79
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: boss-melee_5
       rect:
         serializedVersion: 2
-        x: 713
-        y: 8
-        width: 106
-        height: 65
+        x: 801
+        y: 13
+        width: 119
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,7 +253,7 @@ TextureImporter:
       name: boss-melee_6
       rect:
         serializedVersion: 2
-        x: 863
+        x: 993
         y: 8
         width: 96
         height: 65

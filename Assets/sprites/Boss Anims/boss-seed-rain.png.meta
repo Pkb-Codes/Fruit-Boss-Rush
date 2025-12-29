@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 207806ba1852ba14998a9294ce0f84e7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1099670160907419213
+    second: boss-seed-rain_0
+  - first:
+      213: -3045934882788872078
+    second: boss-seed-rain_1
+  - first:
+      213: -588815401525160346
+    second: boss-seed-rain_2
+  - first:
+      213: -8104091128364905165
+    second: boss-seed-rain_3
+  - first:
+      213: 3425071596162471019
+    second: boss-seed-rain_4
+  - first:
+      213: -4738936062248274501
+    second: boss-seed-rain_5
+  - first:
+      213: -4234728412977229026
+    second: boss-seed-rain_6
+  - first:
+      213: -6003874092940189719
+    second: boss-seed-rain_7
+  - first:
+      213: -5288402631208845938
+    second: boss-seed-rain_8
+  - first:
+      213: 4722254060107303622
+    second: boss-seed-rain_9
+  - first:
+      213: 6920452490987795676
+    second: boss-seed-rain_10
+  - first:
+      213: -7899309876139776143
+    second: boss-seed-rain_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boss-seed-rain_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 8
+        width: 96
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4ebbfe5f20d24f00800000000000000
+      internalID: 1099670160907419213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-rain_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 13
+        width: 96
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 270f566bc5aaab5d0800000000000000
+      internalID: -3045934882788872078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-rain_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 13
+        width: 96
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66650d1138b14d7f0800000000000000
+      internalID: -588815401525160346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-rain_3
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 13
+        width: 96
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33d4a6a5e0c788f80800000000000000
+      internalID: -8104091128364905165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-rain_4
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 13
+        width: 96
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b645b8b487c488f20800000000000000
+      internalID: 3425071596162471019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-rain_5
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 13
+        width: 96
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb5376462caeb3eb0800000000000000
+      internalID: -4738936062248274501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-rain_6
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 13
+        width: 96
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e131d38e1f83b35c0800000000000000
+      internalID: -4234728412977229026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-rain_7
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 13
+        width: 96
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef11268254fdaca0800000000000000
+      internalID: -6003874092940189719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-rain_8
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 13
+        width: 96
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8d3e8973d1db96b0800000000000000
+      internalID: -5288402631208845938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-rain_9
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 13
+        width: 96
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca87df4c01d88140800000000000000
+      internalID: 4722254060107303622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-rain_10
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 13
+        width: 96
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd47b4adfd26a0060800000000000000
+      internalID: 6920452490987795676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-seed-rain_11
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 8
+        width: 96
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17724fd1583006290800000000000000
+      internalID: -7899309876139776143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      boss-seed-rain_0: 1099670160907419213
+      boss-seed-rain_1: -3045934882788872078
+      boss-seed-rain_10: 6920452490987795676
+      boss-seed-rain_11: -7899309876139776143
+      boss-seed-rain_2: -588815401525160346
+      boss-seed-rain_3: -8104091128364905165
+      boss-seed-rain_4: 3425071596162471019
+      boss-seed-rain_5: -4738936062248274501
+      boss-seed-rain_6: -4234728412977229026
+      boss-seed-rain_7: -6003874092940189719
+      boss-seed-rain_8: -5288402631208845938
+      boss-seed-rain_9: 4722254060107303622
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
