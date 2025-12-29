@@ -36,6 +36,7 @@ public class PlayerCombat : MonoBehaviour
     private bool abTrigger = false;
     private Animator animator;
     private EnemyHealthScript enemy;
+    private MiniEnemyHealth minienemy;
     private HashSet<EnemyHealthScript> enemiesHit = new HashSet<EnemyHealthScript>();
 
 
@@ -149,19 +150,35 @@ public class PlayerCombat : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemies)
         {
+            MiniEnemyHealth minienemyHealth = enemy.GetComponent<MiniEnemyHealth>();
+            if(minienemyHealth != null) 
+            {
+                minienemyHealth.TakeDamage(attackDamage);
+                minienemyHealth.TakeKnockback();
+            }
+
             EnemyHealthScript enemyHealth = enemy.GetComponentInParent<EnemyHealthScript>();
-            if(enemiesHit.Contains(enemyHealth) == true) {return;}
-            // makes each enemy take damage
-            enemyHealth.TakeDamage(attackDamage);
-            enemyHealth.Knockback(facingDirection, knockbackForce);
-            enemiesHit.Add(enemyHealth);
+            if(enemyHealth != null)
+            {
+                if(enemiesHit.Contains(enemyHealth) == true) {return;}
+                // makes each enemy take damage
+                enemyHealth.TakeDamage(attackDamage);
+                enemyHealth.Knockback(facingDirection, knockbackForce);
+                enemiesHit.Add(enemyHealth);
+            }
         }
     }
     void SpinSlash()
     {
-        if(enemy == null) {return;}
-        enemy.TakeDamage(spinSlashDamage);
-        enemy.Knockback(facingDirection, knockbackForce); 
+        if(minienemy != null)
+        {
+            minienemy.TakeDamage(spinSlashDamage);
+        }
+        else
+        {
+            enemy.TakeDamage(spinSlashDamage);
+            enemy.Knockback(facingDirection, knockbackForce);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -169,6 +186,7 @@ public class PlayerCombat : MonoBehaviour
         if(spinHitbox && collision.CompareTag("enemy"))
         {
             enemy = collision.GetComponentInParent<EnemyHealthScript>();
+            minienemy = collision.GetComponent<MiniEnemyHealth>();
         }
     }
     private void OnDrawGizmosSelected()

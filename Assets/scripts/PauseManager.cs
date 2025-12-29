@@ -25,7 +25,10 @@ public class PauseManager : MonoBehaviour
         animators = FindObjectsByType<Animator>(FindObjectsSortMode.None);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        foreach (Animator anim in animators) {anim.speed = 0f;}
+        foreach (Animator anim in animators) 
+        {
+            if(anim != null) {anim.speed = 0f;}
+        }
         isPaused = true;
     }
 
@@ -34,7 +37,10 @@ public class PauseManager : MonoBehaviour
         animators = FindObjectsByType<Animator>(FindObjectsSortMode.None);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        foreach (Animator anim in animators) {anim.speed = 1f;}
+        foreach (Animator anim in animators)
+        {
+            if(anim != null) {anim.speed = 1f;}
+        }
         isPaused = false;
     }
 }
