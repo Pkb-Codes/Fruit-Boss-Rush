@@ -67,7 +67,7 @@ public class BossAttackScript : MonoBehaviour
             StartCoroutine(RoarFreeze());
         }
 
-        // if(isIdle) {attackTimer += Time.deltaTime;}
+        if(isIdle) {attackTimer += Time.deltaTime;}
 
         //manual controls to showoff the attacks
         if(Input.GetKeyDown(KeyCode.H)) {MeleeAttackState();}

@@ -15,6 +15,7 @@ public class VanishPlatform : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Collider2D boxCollider;
+    private Color ogColor;
     private Vector3 pvposition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +24,8 @@ public class VanishPlatform : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         pvposition = transform.position;
         timer = 0f;
+
+        ogColor = spriteRenderer.color;
 
         boxCollider.enabled = true;
         spriteRenderer.enabled = true;
@@ -34,7 +37,7 @@ public class VanishPlatform : MonoBehaviour
     {
         if(isthere == true && timer < ontime)
         {
-            spriteRenderer.color = Color.white;
+            spriteRenderer.color = ogColor;
             timer += Time.deltaTime;
             spriteRenderer.enabled = true;
             boxCollider.enabled = true;

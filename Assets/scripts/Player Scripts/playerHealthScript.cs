@@ -15,9 +15,14 @@ public class playerHealthScript : MonoBehaviour
     private float flashTimer; // to make the enemy flash red (will be removed when sprites are added)
     private bool isFlash = false; // to make the enemy flash red (will be removed when sprites are added)
     private float currentHealth;
-    private Color originalColor; // to make the enemy flash red (will be removed when sprites are added)
+    private Color originalPlayerColor; // to make the enemy flash red (will be removed when sprites are added)
+    private Color originalHealthbarColor;
     private SpriteRenderer spriterenderer;
     private Rigidbody2D rb;
+
+    public GameObject healthbar;
+    private Image[] healthsprite;
+    private Color[] originalHealthbarColors;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,9 +30,16 @@ public class playerHealthScript : MonoBehaviour
     {
         currentHealth = maxHealth;
         spriterenderer = GetComponent<SpriteRenderer>();
+        healthsprite = healthbar.GetComponentsInChildren<Image>();
         rb = GetComponent<Rigidbody2D>();
-        originalColor = spriterenderer.color; // to make the enemy flash red (will be removed when sprites are added)
+        originalPlayerColor = spriterenderer.color; // to make the enemy flash red (will be removed when sprites are added)
+        originalHealthbarColors = new Color[healthsprite.Length];
+
+        for (int i = 0; i < healthsprite.Length; i++)
+            originalHealthbarColors[i] = healthsprite[i].color;
+
         flashTimer = flashTime; // to make the enemy flash red (will be removed when sprites are added)
+        
     }
 
     void Update() //0 1 2 3 4
@@ -62,10 +74,15 @@ public class playerHealthScript : MonoBehaviour
         if(isFlash)
         {
             spriterenderer.color = Color.red;
+            foreach (var img in healthsprite)
+                img.color = Color.yellowGreen;
+
             flashTimer -= Time.deltaTime;
             if(flashTimer <= 0f)
             {
-                spriterenderer.color = originalColor;
+                spriterenderer.color = originalPlayerColor;
+                for(int i = 0; i<healthsprite.Length; i++)
+                    healthsprite[i].color = originalHealthbarColors[i];
                 isFlash = false;
                 flashTimer = flashTime;
             }

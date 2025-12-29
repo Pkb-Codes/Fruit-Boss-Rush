@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 22999768df3f4764ba3642c4b3d07962
+guid: 6530624f1b1088b4e98c1fa57d54e626
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1955448553306655712
-    second: Background_0
+      213: 3422843497213132554
+    second: singular_brick_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background_0
+      name: singular_brick_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        y: 14
+        width: 41
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 024fa93b6e9dcd4e0800000000000000
-      internalID: -1955448553306655712
+      spriteID: a0ff4259602608f20800000000000000
+      internalID: 3422843497213132554
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Background_0: -1955448553306655712
+      singular_brick_0: 3422843497213132554
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
