@@ -33,6 +33,7 @@ public class BossAttackScript : MonoBehaviour
     public bool isBouncing = false;
     private bool dashing = false;
     private bool isIdle = true;
+    public bool timerStop = true;
 
 
     private Rigidbody2D rb;
@@ -67,7 +68,7 @@ public class BossAttackScript : MonoBehaviour
             StartCoroutine(RoarFreeze());
         }
 
-        if(isIdle) {attackTimer += Time.deltaTime;}
+        if(isIdle && !timerStop) {attackTimer += Time.deltaTime;}
 
         //manual controls to showoff the attacks
         // if(Input.GetKeyDown(KeyCode.H)) {MeleeAttackState();}
@@ -256,6 +257,21 @@ public class BossAttackScript : MonoBehaviour
         CameraShakeScript shake = Camera.main.GetComponent<CameraShakeScript>();
         StartCoroutine(shake.CameraShake(roarShakeMagnitude, roarDuration));
         health.invincible = false;
+    }
+
+    public void Restart()
+    {
+        health.currentHealth = health.maxHealth;
+        phase = 1;
+        timerStop = true;
+        isBouncing = false;
+        animator.SetBool("IsBracing", false);
+        bounceTimer = 0f;
+        phase2triggered = false;
+        phase3triggered = false;
+        health.spawned = false;
+        health.TakeDamage(0);
+        AttackEnd();
     }
     //touch damage
     void OnCollisionEnter2D(Collision2D collision)

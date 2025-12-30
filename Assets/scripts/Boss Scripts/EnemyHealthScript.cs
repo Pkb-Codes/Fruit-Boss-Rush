@@ -16,7 +16,7 @@ public class EnemyHealthScript : MonoBehaviour
     private Animator animator;
     public float flashTimer; // to make the enemy flash red (will be removed when sprites are added)
     private bool isFlash = false; // to make the enemy flash red (will be removed when sprites are added)
-    private bool spawned = false;
+    public bool spawned = false;
 
     private SpriteRenderer spriterenderer;
     private Color originalColor; // to make the enemy flash red (will be removed when sprites are added)
