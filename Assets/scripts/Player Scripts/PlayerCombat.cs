@@ -35,8 +35,12 @@ public class PlayerCombat : MonoBehaviour
     private bool abilityValid = false;
     private bool abTrigger = false;
     private Animator animator;
-    private EnemyHealthScript enemy;
-    private MiniEnemyHealth minienemy;
+
+    HashSet<EnemyHealthScript> enemies = new HashSet<EnemyHealthScript>();
+    HashSet<MiniEnemyHealth> miniEnemies = new HashSet<MiniEnemyHealth>();
+
+    // private EnemyHealthScript enemy;
+    // private MiniEnemyHealth minienemy;
     private HashSet<EnemyHealthScript> enemiesHit = new HashSet<EnemyHealthScript>();
 
 
@@ -76,6 +80,8 @@ public class PlayerCombat : MonoBehaviour
                 abilityTimer = 0;
                 abilityValid = false; //switches to cooldown period after using ability, now ability is invalid
                 animator.SetBool("IsSpinslash", false);
+                enemies.Clear();
+                miniEnemies.Clear();
                 spinHitbox.enabled = false;
             }
 
@@ -102,6 +108,8 @@ public class PlayerCombat : MonoBehaviour
             {
                 spinHitbox.enabled = false;
                 animator.SetBool("IsSpinslash", false);
+                enemies.Clear();
+                miniEnemies.Clear();
             }
 
             //makes spinslash deal damage spinHitCount times in total
@@ -154,7 +162,7 @@ public class PlayerCombat : MonoBehaviour
             if(minienemyHealth != null) 
             {
                 minienemyHealth.TakeDamage(attackDamage);
-                minienemyHealth.TakeKnockback();
+                minienemyHealth.TakeKnockback(2 * knockbackForce, transform.position.x);
             }
 
             EnemyHealthScript enemyHealth = enemy.GetComponentInParent<EnemyHealthScript>();
@@ -170,25 +178,49 @@ public class PlayerCombat : MonoBehaviour
     }
     void SpinSlash()
     {
-        if(minienemy != null)
+        foreach(EnemyHealthScript e in enemies)
         {
-            minienemy.TakeDamage(spinSlashDamage);
+            if(e != null)
+            {
+                e.TakeDamage(spinSlashDamage);
+                e.Knockback(facingDirection, knockbackForce);
+            }
         }
-        else
+        
+        foreach(MiniEnemyHealth m in miniEnemies)
         {
-            enemy.TakeDamage(spinSlashDamage);
-            enemy.Knockback(facingDirection, knockbackForce);
+            if(m != null)
+            {
+                m.TakeDamage(spinSlashDamage);
+                m.TakeKnockback(knockbackForce/2, transform.position.x);
+            }
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(spinHitbox && collision.CompareTag("enemy"))
+        if(spinHitbox.enabled && collision.CompareTag("enemy"))
         {
-            enemy = collision.GetComponentInParent<EnemyHealthScript>();
-            minienemy = collision.GetComponent<MiniEnemyHealth>();
+            EnemyHealthScript e = collision.GetComponentInParent<EnemyHealthScript>();
+            if(e != null) {enemies.Add(e);}
+            MiniEnemyHealth m = collision.GetComponent<MiniEnemyHealth>();
+            if(m != null) {miniEnemies.Add(m);}
         }
     }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (spinHitbox.enabled && collision.CompareTag("enemy"))
+        {
+            EnemyHealthScript e = collision.GetComponentInParent<EnemyHealthScript>();
+            if (e != null) enemies.Remove(e);
+
+            MiniEnemyHealth m = collision.GetComponent<MiniEnemyHealth>();
+            if (m != null) miniEnemies.Remove(m);
+        }
+    }
+
+
     private void OnDrawGizmosSelected()
     {
         //just to see the attack point and range lol

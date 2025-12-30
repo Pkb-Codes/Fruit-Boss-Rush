@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 13bb32cea1305cd4aac12eb2f3ac57fe
+guid: 5b77f63d47d62a447bd1d5ea74d65171
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3020617363365329840
-    second: mini pomo guy_0
+      213: 6209597890901643970
+    second: mini pomo walk_0
+  - first:
+      213: -7121215434347544810
+    second: mini pomo walk_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mini pomo guy_0
+      name: mini pomo walk_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
-        width: 78
-        height: 64
+        x: 9
+        y: 99
+        width: 382
+        height: 347
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0548b3e038c9416d0800000000000000
-      internalID: -3020617363365329840
+      spriteID: 2c21535c16cec2650800000000000000
+      internalID: 6209597890901643970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mini pomo walk_1
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 99
+        width: 382
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f7fa2da4c5c2d90800000000000000
+      internalID: -7121215434347544810
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mini pomo guy_0: -3020617363365329840
+      mini pomo walk_0: 6209597890901643970
+      mini pomo walk_1: -7121215434347544810
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

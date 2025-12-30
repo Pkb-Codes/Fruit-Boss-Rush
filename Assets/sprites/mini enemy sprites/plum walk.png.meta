@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 393c72e8a10b6424694a30ea68eb6e30
+guid: 4ce3cd4c836410e42ab33686dcf89949
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2153911524819176031
-    second: plum guy_0
+      213: 8118718181421845352
+    second: plum walk_0
+  - first:
+      213: 2121764934112165421
+    second: plum walk_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plum guy_0
+      name: plum walk_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 97
-        width: 438
-        height: 343
+        y: 109
+        width: 436
+        height: 332
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5a8772be1b34ed10800000000000000
-      internalID: 2153911524819176031
+      spriteID: 86b8723db2b7ba070800000000000000
+      internalID: 8118718181421845352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plum walk_1
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 109
+        width: 427
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2eb2aa47f5027d10800000000000000
+      internalID: 2121764934112165421
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      plum guy_0: 2153911524819176031
+      plum walk_0: 8118718181421845352
+      plum walk_1: 2121764934112165421
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
