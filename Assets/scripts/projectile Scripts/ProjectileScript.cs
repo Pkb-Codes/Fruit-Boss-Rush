@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    public float speed = 6f;
-    public float turnSpeed = 3f;
+    public float speed = 10f;
+    public float turnSpeed = 20f;
     public int damage = 20;
     public float aliveTime = 10f;
 

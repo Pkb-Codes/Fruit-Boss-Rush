@@ -11,6 +11,11 @@ public class PlayerMovement : MonoBehaviour
     public float hitKnockForce = 5f;
     public BoxCollider2D legCollider;
 
+    public AudioClip walk;
+    public AudioClip jump;
+
+    private AudioSource audioSource;
+
     private float knockbackTimer = 0f;
     private float move;
     private Animator animator;
@@ -24,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -42,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
             if(Input.GetKey(KeyCode.A)) 
             {
                 move = -1f;
+                if (!audioSource.isPlaying && isGrounded)
+                    audioSource.PlayOneShot(walk);
                 transform.localScale = new Vector3(-1, 1, 1);
                 animator.SetTrigger("Move");
             }
@@ -49,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
             else if(Input.GetKey(KeyCode.D)) 
             {
                 move = 1f;
+                if (!audioSource.isPlaying && isGrounded)
+                    audioSource.PlayOneShot(walk);
                 transform.localScale = new Vector3(1, 1, 1);
                 animator.SetTrigger("Move");
             }
@@ -81,6 +91,8 @@ public class PlayerMovement : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpSpeed);
                 isGrounded = false;
                 isStanding = false;
+                audioSource.PlayOneShot(jump);
+
                 
             }
         }

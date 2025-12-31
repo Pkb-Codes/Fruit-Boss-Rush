@@ -3,6 +3,12 @@ using UnityEngine.UI;
 public class playerHealthScript : MonoBehaviour
 {
 
+    public AudioClip hurt;
+    public AudioClip normalAttack;
+    public AudioClip spinSlashAttack;
+
+    private AudioSource audioSource;
+
     public float maxHealth = 150f;
     public float flashTime = 0.25f; // to make the enemy flash red (will be removed when sprites are added)
 
@@ -28,6 +34,7 @@ public class playerHealthScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         spriterenderer = GetComponent<SpriteRenderer>();
         healthsprite = healthbar.GetComponentsInChildren<Image>();
@@ -91,6 +98,7 @@ public class playerHealthScript : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        audioSource.PlayOneShot(hurt, 0.25f);
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         isFlash = true; // to make the enemy flash red (will be removed when sprites are added)

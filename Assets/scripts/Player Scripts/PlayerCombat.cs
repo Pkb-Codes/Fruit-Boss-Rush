@@ -5,6 +5,9 @@ using NUnit.Framework;
 
 public class PlayerCombat : MonoBehaviour
 {
+    public AudioClip swordslash;
+
+    private AudioSource audioSource;
 
     public Transform attackPoint; //tracks location of attack point
     public float attackRange = 0.5f; //range of attack
@@ -50,6 +53,7 @@ public class PlayerCombat : MonoBehaviour
         animator = GetComponent<Animator>();
 
         spinHitbox.enabled = false;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -147,6 +151,7 @@ public class PlayerCombat : MonoBehaviour
    
     void SlashAttackState()
     {
+        audioSource.PlayOneShot(swordslash, 0.45f);
         SlashAnimator.SetTrigger("Slash");
         Invoke("SlashAttack", 0.04f);
     }

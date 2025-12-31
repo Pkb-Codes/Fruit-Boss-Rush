@@ -7159,10 +7159,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 112005476185492015, guid: c798d7c2e9fff2c44926ff66c1b1fdfe, type: 3}
-      propertyPath: hurt
-      value: 
-      objectReference: {fileID: 8300000, guid: 89cf9a767be5a8443bb875c6ec35328b, type: 3}
-    - target: {fileID: 112005476185492015, guid: c798d7c2e9fff2c44926ff66c1b1fdfe, type: 3}
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 1094776049}
@@ -7262,10 +7258,6 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: aab81f67ead8ebb4e820f62a27bf7cc6, type: 2}
-    - target: {fileID: 6632714798425722579, guid: c798d7c2e9fff2c44926ff66c1b1fdfe, type: 3}
-      propertyPath: jump
-      value: 
-      objectReference: {fileID: 8300000, guid: 4c20a0fef508f1845b0122eee6edcfa3, type: 3}
     - target: {fileID: 8139380061717607820, guid: c798d7c2e9fff2c44926ff66c1b1fdfe, type: 3}
       propertyPath: m_Name
       value: player
@@ -9227,16 +9219,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pomodoro
       objectReference: {fileID: 0}
-    - target: {fileID: 8334774340556347538, guid: ef1080c8ac78b6c44bba502095d81272, type: 3}
-      propertyPath: die
-      value: 
-      objectReference: {fileID: 8300000, guid: 2a62a25dc5d92a64582b52020cc2d94a, type: 3}
-    - target: {fileID: 8334774340556347538, guid: ef1080c8ac78b6c44bba502095d81272, type: 3}
-      propertyPath: hurt
-      value: 
-      objectReference: {fileID: 8300000, guid: 44144117141d3414db39f3a7d1f06a28, type: 3}
-    m_RemovedComponents:
-    - {fileID: 8334774340556347538, guid: ef1080c8ac78b6c44bba502095d81272, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
