@@ -35,11 +35,24 @@ public class BossAttackScript : MonoBehaviour
     private bool isIdle = true;
     public bool timerStop = true;
 
+    [Header("Sfx")]
+    public AudioClip scream;
+    public AudioClip bosshurt;
+    public AudioClip swipe;
+    public AudioClip cannonballImpact;
+    public AudioClip explode;
+    public AudioClip idlegrunt1;
+    public AudioClip idlegrunt2;
+    public AudioClip idlegrunt3;
+
+
+
 
     private Rigidbody2D rb;
     private Animator animator;
     private GameObject player;
     private EnemyHealthScript health;
+    private AudioSource audioSource;
 
 
     void Start()
@@ -48,6 +61,7 @@ public class BossAttackScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         health = GetComponent<EnemyHealthScript>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
