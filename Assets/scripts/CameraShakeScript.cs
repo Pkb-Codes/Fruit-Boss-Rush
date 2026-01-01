@@ -8,6 +8,8 @@ public class CameraShakeScript : MonoBehaviour
     public float zoomSpeed = 5f;
     public float targetSize = 7f;
     public GameObject StartMenu;
+    public GameObject health;
+    public GameObject ability;
 
     void Start()
     {
@@ -50,6 +52,9 @@ public class CameraShakeScript : MonoBehaviour
     {
         Time.timeScale = 1;
         StartMenu.SetActive(false);
+
+        health.SetActive(true);
+        ability.SetActive(true);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

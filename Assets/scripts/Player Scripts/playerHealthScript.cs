@@ -4,9 +4,6 @@ public class playerHealthScript : MonoBehaviour
 {
 
     public AudioClip hurt;
-    public AudioClip normalAttack;
-    public AudioClip spinSlashAttack;
-
     private AudioSource audioSource;
 
     public float maxHealth = 150f;

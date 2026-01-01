@@ -22,6 +22,12 @@ public class EnemyHealthScript : MonoBehaviour
     private SpriteRenderer spriterenderer;
     private Color originalColor; // to make the enemy flash red (will be removed when sprites are added)
     private Rigidbody2D rb;
+    private AudioSource audioSource;
+
+    [Header("Sfx")]
+    public AudioClip roar;
+    public AudioClip die;
+    public GameObject bossMusic;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,6 +36,7 @@ public class EnemyHealthScript : MonoBehaviour
         spriterenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         originalColor = spriterenderer.color; // to make the enemy flash red (will be removed when sprites are added)
         flashTimer = flashTime; // to make the enemy flash red (will be removed when sprites are added)
         currentHealth = maxHealth;
@@ -63,6 +70,7 @@ public class EnemyHealthScript : MonoBehaviour
             if(hitCount == 3)
             {
                 player.GetComponent<playerHealthScript>().Heal();
+                hitCount = 0;
             }
             isFlash = true; // to make the enemy flash red (will be removed when sprites are added)
             BossHealthFill.fillAmount = currentHealth / maxHealth;
@@ -94,6 +102,9 @@ public class EnemyHealthScript : MonoBehaviour
         animator.SetBool("IsBracing", false);
 
         animator.SetTrigger("Ded");
+        audioSource.clip = roar;
+        audioSource.time = 0.4f;
+        audioSource.Play();
         CameraShakeScript shake = Camera.main.GetComponent<CameraShakeScript>();
         StartCoroutine(shake.CameraShake(0.5f, 2));
 
@@ -126,6 +137,8 @@ public class EnemyHealthScript : MonoBehaviour
         }
 
         // clamp at exact value
+        AudioSource.PlayClipAtPoint(die, transform.position, 1f);
+
         blastcircle.color = new Color(blastcircle.color.r, blastcircle.color.g, blastcircle.color.b, 0.5f);
         CameraShakeScript shake = Camera.main.GetComponent<CameraShakeScript>();
         shake.StartCoroutine(shake.CameraShake(3, 1.5f));
@@ -134,6 +147,7 @@ public class EnemyHealthScript : MonoBehaviour
     public void Vanish()
     {
         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameRestarter>().BossDied();
+        bossMusic.GetComponent<BossMusicController>().StopBossMusic();
         Destroy(gameObject);
     }
 
@@ -142,8 +156,16 @@ public class EnemyHealthScript : MonoBehaviour
         
         if(!spawned && collision.gameObject.CompareTag("ground"))
         {
-            //add roar sound here
             animator.SetTrigger("Roar");
+
+            audioSource.clip = roar;
+            audioSource.time = 0.4f;
+            audioSource.Play();
+
+            bossMusic.GetComponent<BossMusicController>().StartBossMusic();
+
+            GetComponent<BossAttackScript>().timerStop = false;
+
             BossHealthUI.SetActive(true);
             spawned = true;
         }

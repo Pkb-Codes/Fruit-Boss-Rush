@@ -103,10 +103,10 @@ TextureImporter:
       name: tutorial-spinslash_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 237
-        width: 475
-        height: 70
+        x: 11
+        y: 236
+        width: 477
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

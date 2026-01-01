@@ -5,8 +5,10 @@ using System.Collections.Generic;
 public class PlayerCombat : MonoBehaviour
 {
     public AudioClip swordslash;
+    public AudioClip dash;
+    public AudioClip spin;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     public Transform attackPoint; //tracks location of attack point
     public float attackRange = 0.5f; //range of attack
@@ -65,13 +67,13 @@ public class PlayerCombat : MonoBehaviour
         animator = GetComponent<Animator>();
 
         spinHitbox.enabled = false;
-        audioSource = GetComponent<AudioSource>();
 
         rb = GetComponent<Rigidbody2D>();
         originalGravity = rb.gravityScale;
     }
 
     // Update is called once per frame
+    private bool spined = false;
     void Update()
     {
         timer += Time.deltaTime;
@@ -92,6 +94,15 @@ public class PlayerCombat : MonoBehaviour
         abilityBarFill.fillAmount = abilityTimer/AbilityTime;
         //SpinSlash code
         {
+            if(spined)
+            {
+                audioSource.volume = 10f;
+                audioSource.clip = spin;
+                audioSource.time = 1f;
+                audioSource.Play();
+
+                spined = false;
+            }
 
             if(Input.GetKey(KeyCode.P) && abilityValid == false && abTrigger == false)
             {
@@ -112,6 +123,10 @@ public class PlayerCombat : MonoBehaviour
                 abilityTimer = 0;
                 abilityValid = false; //switches to cooldown period after using ability, now ability is invalid
                 animator.SetBool("IsSpinslash", false);
+
+                audioSource.Stop();
+                spined = false;
+
                 enemies.Clear();
                 miniEnemies.Clear();
                 spinHitbox.enabled = false;
@@ -130,16 +145,22 @@ public class PlayerCombat : MonoBehaviour
                 }
             }
 
-            if(Input.GetKey(KeyCode.P) && abilityValid)
+            if(Input.GetKeyDown(KeyCode.P) && abilityValid)
             {
                 spinHitbox.enabled = true;
                 animator.SetBool("IsSpinslash", true);
+
+                spined = true;
             }
 
             if(Input.GetKeyUp(KeyCode.P) && abilityValid)
             {
                 spinHitbox.enabled = false;
                 animator.SetBool("IsSpinslash", false);
+
+                audioSource.Stop();
+                spined = false;
+
                 enemies.Clear();
                 miniEnemies.Clear();
             }
@@ -194,6 +215,12 @@ public class PlayerCombat : MonoBehaviour
         float dir = facingDirection;
 
         rb.gravityScale = 0f;
+
+        audioSource.volume = 5f;
+        audioSource.clip = dash;
+        audioSource.time = 0.5f;
+        audioSource.Play();
+
         rb.linearVelocity = new Vector2(dir * dashSpeed, 0f);
     }
 
@@ -207,7 +234,10 @@ public class PlayerCombat : MonoBehaviour
    
     void SlashAttackState()
     {
-        audioSource.PlayOneShot(swordslash, 0.45f);
+        audioSource.volume = 1f;
+        audioSource.clip = swordslash;
+        audioSource.Play();
+
         SlashAnimator.SetTrigger("Slash");
         Invoke("SlashAttack", 0.04f);
     }

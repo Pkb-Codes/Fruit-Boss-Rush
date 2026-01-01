@@ -8,6 +8,7 @@ public class RespawnManager : MonoBehaviour
     public Transform bossSpawnPoint;
     public GameObject Boss;
     public GameObject BossUi;
+    public GameObject bossMusic;
     Animator[] animators;
     public bool isDead;
 
@@ -35,6 +36,7 @@ public class RespawnManager : MonoBehaviour
 
         Boss.GetComponent<BossAttackScript>().Restart();
         Boss.transform.position = bossSpawnPoint.position;
+        bossMusic.GetComponent<BossMusicController>().StopBossMusic();
         BossUi.SetActive(false);
 
         animators = FindObjectsByType<Animator>(FindObjectsSortMode.None);

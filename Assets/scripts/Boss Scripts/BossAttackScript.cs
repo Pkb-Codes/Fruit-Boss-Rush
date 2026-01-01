@@ -33,17 +33,14 @@ public class BossAttackScript : MonoBehaviour
     public bool isBouncing = false;
     private bool dashing = false;
     private bool isIdle = true;
-    public bool timerStop = true;
+    public bool timerStop = false;
 
     [Header("Sfx")]
     public AudioClip scream;
-    public AudioClip bosshurt;
     public AudioClip swipe;
     public AudioClip cannonballImpact;
-    public AudioClip explode;
-    public AudioClip idlegrunt1;
-    public AudioClip idlegrunt2;
-    public AudioClip idlegrunt3;
+    public AudioClip dash;
+    public AudioClip seed;
 
 
 
@@ -186,10 +183,16 @@ public class BossAttackScript : MonoBehaviour
         else {transform.localScale = new Vector3(1, 1, 1);}
 
         animator.SetTrigger("Missile");
+        audioSource.clip = seed;
+        audioSource.time = 0.1f;
+        audioSource.Play();
     }
     void SeedRainState()
     {
         animator.SetTrigger("SeedRain");
+        audioSource.clip = seed;
+        audioSource.time = 0.1f;
+        audioSource.Play();
     }
 
     void CannonballAttack()
@@ -203,7 +206,11 @@ public class BossAttackScript : MonoBehaviour
     }
     void DashAttack()
     {
-        //add Dash sound here
+        audioSource.volume = 1.5f;
+        audioSource.clip = dash;
+        audioSource.time = 0.35f;
+        audioSource.Play();
+
         rb.linearVelocityX = dir * meleeDashSpeed;
         leftHand.enabled = false;
         rightHand.enabled = false;
@@ -216,14 +223,13 @@ public class BossAttackScript : MonoBehaviour
     }
     void Melee()
     {
-        //add claw strike attack sound here
+        audioSource.PlayOneShot(swipe, 1.5f);
         rb.linearVelocityX = dir * 10;
         dashing = true;
     }
 
     void SeedAttack()
     {
-        //add seed(homing) sound here
         int projectileCount = phase*2 - 1;
 
         float spreadAngle = 80f * dir;
@@ -243,7 +249,6 @@ public class BossAttackScript : MonoBehaviour
     }
     void SeedRain()
     {
-        //add seed(rain) attack sound here
         Instantiate(RainInitiator, initiatorSpawnPoint.position, initiatorSpawnPoint.rotation);
     }
     void AttackEnd()
@@ -252,12 +257,17 @@ public class BossAttackScript : MonoBehaviour
         dashing = false;
         leftHand.enabled = true;
         rightHand.enabled = true;
+        audioSource.volume = 1f;
     }
 
     private IEnumerator RoarFreeze()
     {
         animator.SetTrigger("Roar");
-        //add roar sound here
+
+        audioSource.clip = scream;
+        audioSource.time = 0.4f;
+        audioSource.Play();
+
         animator.SetBool("IsBracing", false);
         isBouncing = false;
         leftHand.enabled = true;
@@ -265,6 +275,7 @@ public class BossAttackScript : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(roarDuration);
 
+        audioSource.Stop();
         health.invincible = false;
     }
 
@@ -314,7 +325,11 @@ public class BossAttackScript : MonoBehaviour
 
         if (isBouncing && collision.gameObject.CompareTag("ground"))
         {
-            //add cannonball ground smash/bounce sound here
+            audioSource.clip = cannonballImpact;
+            audioSource.time = 0.1f;
+            audioSource.Play();
+
+
             float Hforce = dir * Random.Range(3, 7) *horizontalForce;
             float Vforce = jumpForce + Random.Range(-5, 15);
 
@@ -326,7 +341,10 @@ public class BossAttackScript : MonoBehaviour
         
         if (isBouncing && collision.gameObject.CompareTag("wall"))
         {
-            //add cannonball bounce sound here
+            audioSource.clip = cannonballImpact;
+            audioSource.time = 0.1f;
+            audioSource.Play();
+
             float Hforce = dir * Random.Range(3, 7) *horizontalForce;
 
             rb.linearVelocityX = dir * Hforce;

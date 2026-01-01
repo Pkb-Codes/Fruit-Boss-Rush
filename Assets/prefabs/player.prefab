@@ -451,6 +451,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b35c7826a9a6984ba393f870f009a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShakeScript
+  zoomSpeed: 5
+  targetSize: 7
+  StartMenu: {fileID: 0}
 --- !u!1 &8139380061717607820
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,8 +467,8 @@ GameObject:
   - component: {fileID: 6855712270087619350}
   - component: {fileID: 5932700607836818577}
   - component: {fileID: 6632714798425722579}
-  - component: {fileID: 4967414419966581152}
   - component: {fileID: 112005476185492015}
+  - component: {fileID: 4967414419966581152}
   - component: {fileID: 7490900926829284995}
   - component: {fileID: 9127922592857977135}
   m_Layer: 7
@@ -646,32 +649,6 @@ MonoBehaviour:
   legCollider: {fileID: 3848784519205760762}
   walk: {fileID: 8300000, guid: b905df09b7999a441805a94d25eefa76, type: 3}
   jump: {fileID: 0}
---- !u!114 &4967414419966581152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8139380061717607820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b43ff272d390f24db7e46855fc315fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
-  attackPoint: {fileID: 7444438004343029988}
-  attackRange: 1
-  attackDamage: 15
-  knockbackForce: 100
-  SlashAnimator: {fileID: 7490903357984002262}
-  abilityBarFill: {fileID: 0}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  attackCooldown: 0.5
-  spinSlashDamage: 10
-  AbilityTime: 2
-  CooldownTime: 8
-  spinHitbox: {fileID: 3992535687934911517}
 --- !u!114 &112005476185492015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,7 +676,41 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  hasreached: 0
   healthbar: {fileID: 0}
+--- !u!114 &4967414419966581152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8139380061717607820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b43ff272d390f24db7e46855fc315fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  swordslash: {fileID: 0}
+  dash: {fileID: 0}
+  audioSource: {fileID: 0}
+  attackPoint: {fileID: 7444438004343029988}
+  attackRange: 1
+  attackDamage: 15
+  knockbackForce: 100
+  SlashAnimator: {fileID: 7490903357984002262}
+  abilityBarFill: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  attackCooldown: 0.5
+  spinSlashDamage: 10
+  AbilityTime: 2
+  CooldownTime: 8
+  spinHitbox: {fileID: 3992535687934911517}
+  dashSpeed: 18
+  dashDuration: 0.15
+  dashCooldown: 0.2
+  isDashing: 0
 --- !u!95 &7490900926829284995
 Animator:
   serializedVersion: 7

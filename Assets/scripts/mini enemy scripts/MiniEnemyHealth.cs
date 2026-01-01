@@ -16,6 +16,7 @@ public class MiniEnemyHealth : MonoBehaviour
     private Color originalColor;
     private int currentHealth;
     private bool isalive = true;
+    public bool isKnocked = false;
 
     private SpriteRenderer mySprite;
     private BoxCollider2D boxCollider;
@@ -44,6 +45,11 @@ public class MiniEnemyHealth : MonoBehaviour
                 sr.color = originalColor;
             }
         }
+
+        if(isKnocked && rb.linearVelocityX < 0.1 && rb.linearVelocityX > -0.1)
+        {
+            isKnocked = false;
+        }
     }
 
     public void TakeDamage(int damage)
@@ -63,6 +69,8 @@ public class MiniEnemyHealth : MonoBehaviour
         int dir = 0;
         if(transform.position.x - x > 0) {dir = 1;}
         else {dir = -1;}
+
+        isKnocked = true;
 
         rb.AddForce(new Vector2(dir * force, 0), ForceMode2D.Impulse);
     }

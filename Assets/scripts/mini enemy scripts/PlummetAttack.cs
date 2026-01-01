@@ -95,6 +95,11 @@ public class PlummetAttack : MonoBehaviour
         // This loop runs forever as long as the object is active
         while(true)
         {
+
+            while (GetComponent<MiniEnemyHealth>().isKnocked)
+                yield return null;
+
+
             // --- STATE 1: MOVE ---
             // Pick a random direction (Length of 1)
             int num;
