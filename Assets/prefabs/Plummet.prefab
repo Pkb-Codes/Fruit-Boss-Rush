@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9015565850989264887}
   - component: {fileID: 1219461807526148903}
   - component: {fileID: 8443562409958618901}
+  - component: {fileID: 5795838079845650987}
   m_Layer: 6
   m_Name: Plummet
   m_TagString: enemy
@@ -158,7 +159,7 @@ Rigidbody2D:
   m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: aab81f67ead8ebb4e820f62a27bf7cc6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -182,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniEnemyHealth
   hurt: {fileID: 8300000, guid: 44144117141d3414db39f3a7d1f06a28, type: 3}
+  die: {fileID: 8300000, guid: 2a62a25dc5d92a64582b52020cc2d94a, type: 3}
   maxHealth: 40
   flashTime: 0.15
 --- !u!82 &1219461807526148903
@@ -294,16 +296,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlummetAttack
   detectionRange: 5
-  jumpForce: 12
+  jumpForce: 15
   trackingSpeed: 5
-  slamSpeed: 20
-  hangTime: 0.5
-  damage: 30
+  slamSpeed: 40
+  hangTime: 0.2
+  damage: 15
   playerGO: {fileID: 0}
-  minSpeed: 2
-  maxSpeed: 5
+  minSpeed: 5
+  maxSpeed: 10
   minMoveTime: 1
   maxMoveTime: 3
   minWaitTime: 1
-  maxWaitTime: 4
+  maxWaitTime: 2
+  RestTime: 2
+  jumpTime: 0.5
   groundpound: {fileID: 8300000, guid: 479c2cd7c02797d42ba546d5d97fdeef, type: 3}
+--- !u!95 &5795838079845650987
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156478506671424955}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3d181f7ceffa79c4fbab49d53c14abc8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

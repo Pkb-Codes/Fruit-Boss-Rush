@@ -110,6 +110,10 @@ public class playerHealthScript : MonoBehaviour
         }
     }
 
+    public void Heal()
+    {
+        currentHealth += 10;
+    }
     void Die()
     {
         GameObject respawnmanager = GameObject.FindGameObjectWithTag("respawnmanager");

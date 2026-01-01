@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 820310802557881096}
   - component: {fileID: 1400334646965103215}
   - component: {fileID: 3918091198291967591}
-  - component: {fileID: 8334774340556347538}
   - component: {fileID: 1968171410936308004}
   - component: {fileID: 5772571480425363996}
   m_Layer: 6
@@ -159,20 +158,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8334774340556347538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6604626529637507216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c86d166ad79ba43a1d57746ac068b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MiniEnemyHealth
-  maxHealth: 40
-  flashTime: 0.15
 --- !u!114 &1968171410936308004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,17 +171,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PomodoroAttack
   beep: {fileID: 8300000, guid: 77e1c9c821530984086774ecc1610456, type: 3}
-  boom: {fileID: 0}
+  boom: {fileID: 8300000, guid: a89afc13fd860bc4198cd8336ad59294, type: 3}
   proximity: 7
   player: {fileID: 0}
-  totalDuration: 3
+  totalDuration: 6
   startDelay: 0.8
   endDelay: 0.05
   flashDuration: 0.1
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   projectilePrefab: {fileID: 9019491570726975356, guid: bd0eab6fbef76a54c903642cc1659df1, type: 3}
-  numberOfProjectiles: 8
-  projectileSpeed: 5
+  numberOfProjectiles: 14
+  projectileSpeed: 10
   radius: 0.5
 --- !u!82 &5772571480425363996
 AudioSource:

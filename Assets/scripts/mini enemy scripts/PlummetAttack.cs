@@ -27,30 +27,40 @@ public class PlummetAttack : MonoBehaviour
     public float maxMoveTime = 3f;
     public float minWaitTime = 1f;
     public float maxWaitTime = 4f;
+    public float RestTime = 2f;
+    public float jumpTime = 1f;
 
     public AudioClip groundpound;
     private AudioSource audioSource;
 
     private Rigidbody2D rb;
     private bool isGrounded;
+    private Animator animator;
+    private SpriteRenderer sr;
     
 
     private enum State {Idle, Jumping, Slamming, Recovering}
     private State currentState = State.Idle;
+    private float timer = 0f;
+    private float jumptimer = 0f;
 
     private Coroutine patrolCoroutine;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        timer = RestTime;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
         patrolCoroutine = StartCoroutine(PatrolRoutine());
         audioSource = GetComponent<AudioSource>();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+
         player = playerGO.transform;
         if(currentState == State.Idle)
         {
@@ -58,17 +68,27 @@ public class PlummetAttack : MonoBehaviour
         }
 
         if(currentState == State.Jumping)
+        {
             TrackPlayerX();
-
-
+            if(jumptimer < jumpTime)
+            {
+                jumptimer += Time.deltaTime;
+            }
+            else
+            {
+                jumptimer = 0f;
+                currentState = State.Slamming;
+                StartCoroutine(PrepareSlam());
+            }
+        }
     }
 
     void CheckForPlayer()
     {
         float distance = Vector2.Distance(transform.position, player.position);
 
-        if(distance < detectionRange && isGrounded)
-            StartJump();
+        if(distance < detectionRange && isGrounded && timer > RestTime)
+            animator.SetTrigger("Smash");
     }
 
     System.Collections.IEnumerator PatrolRoutine()
@@ -77,19 +97,26 @@ public class PlummetAttack : MonoBehaviour
         while(true)
         {
             // --- STATE 1: MOVE ---
-            
             // Pick a random direction (Length of 1)
             int num;
             if(Random.Range(0, 2) == 1)
+            {
                 num = 1;
+                sr.flipX = false;
+            }
             else
+            {
                 num = -1;
+                sr.flipX = true;
+            }
             Vector2 randomDir = new Vector2(num, 0);
             
             // Pick a random speed
             float randomSpeed = Random.Range(minSpeed, maxSpeed);
 
             // Apply velocity
+            rb.linearDamping = 0;
+            animator.SetBool("IsWalking", true);
             rb.linearVelocity = new Vector2(randomDir.x * randomSpeed, rb.linearVelocity.y);
 
             // Wait for a random amount of time while moving
@@ -100,7 +127,9 @@ public class PlummetAttack : MonoBehaviour
             // --- STATE 2: STOP ---
             
             // Stop movement
+            rb.linearDamping = 1;
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            animator.SetBool("IsWalking", false);
 
             // Wait for a random amount of time while stopped
             float waitDuration = Random.Range(minWaitTime, maxWaitTime);
@@ -111,6 +140,7 @@ public class PlummetAttack : MonoBehaviour
     void StartJump()
     {
         currentState = State.Jumping;
+        
         rb.linearVelocity = Vector3.up * jumpForce;
         isGrounded = false;
         StopCoroutine(patrolCoroutine);
@@ -120,20 +150,14 @@ public class PlummetAttack : MonoBehaviour
     void TrackPlayerX()
     {
         // 3. While in the air, smoothy move X towards player's X
-        float newX = Mathf.MoveTowards(transform.position.x, player.position.x, trackingSpeed * Time.deltaTime);
-        transform.position = new Vector2(newX, transform.position.y);
-
-        // 4. Check if we reached the peak of the jump (vertical velocity is near 0)
-        if (rb.linearVelocity.y <= 0.5f)
-        {
-            StartCoroutine(PrepareSlam());
-        }
+        float dir = Mathf.Sign(player.position.x - transform.position.x);
+        rb.linearVelocity = new Vector2(dir * trackingSpeed, rb.linearVelocity.y);
     }
 
     System.Collections.IEnumerator PrepareSlam()
     {
         currentState = State.Slamming;
-        
+
         // Stop movement briefly (The "Wile E. Coyote" hang time)
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 0; // Turn off gravity so it doesn't float down
@@ -167,6 +191,7 @@ public class PlummetAttack : MonoBehaviour
                 patrolCoroutine = StartCoroutine(PatrolRoutine());
             isGrounded = true;
             currentState = State.Idle;
+            timer = 0;
         }
 
         if (collision.gameObject.CompareTag("Player"))
@@ -177,7 +202,4 @@ public class PlummetAttack : MonoBehaviour
         }
 
     }
-
-
-
 }

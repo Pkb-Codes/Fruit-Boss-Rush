@@ -68,13 +68,13 @@ public class BossAttackScript : MonoBehaviour
             StartCoroutine(RoarFreeze());
         }
 
-        if(isIdle && !timerStop) {attackTimer += Time.deltaTime;}
+        // if(isIdle && !timerStop) {attackTimer += Time.deltaTime;}
 
         //manual controls to showoff the attacks
-        // if(Input.GetKeyDown(KeyCode.H)) {MeleeAttackState();}
-        // if(Input.GetKeyDown(KeyCode.J)) {SeedAttackState();}
-        // if(Input.GetKeyDown(KeyCode.K)) {CannonballAttackState();}
-        // if(Input.GetKeyDown(KeyCode.L)) {SeedRainState();}
+        if(Input.GetKeyDown(KeyCode.H)) {MeleeAttackState();}
+        if(Input.GetKeyDown(KeyCode.J)) {SeedAttackState();}
+        if(Input.GetKeyDown(KeyCode.K)) {CannonballAttackState();}
+        if(Input.GetKeyDown(KeyCode.L)) {SeedRainState();}
 
         //phase 2
         if(health.currentHealth > 100 && health.currentHealth <= 200)
@@ -189,6 +189,7 @@ public class BossAttackScript : MonoBehaviour
     }
     void DashAttack()
     {
+        //add Dash sound here
         rb.linearVelocityX = dir * meleeDashSpeed;
         leftHand.enabled = false;
         rightHand.enabled = false;
@@ -201,12 +202,14 @@ public class BossAttackScript : MonoBehaviour
     }
     void Melee()
     {
+        //add claw strike attack sound here
         rb.linearVelocityX = dir * 10;
         dashing = true;
     }
 
     void SeedAttack()
     {
+        //add seed(homing) sound here
         int projectileCount = phase*2 - 1;
 
         float spreadAngle = 80f * dir;
@@ -226,6 +229,7 @@ public class BossAttackScript : MonoBehaviour
     }
     void SeedRain()
     {
+        //add seed(rain) attack sound here
         Instantiate(RainInitiator, initiatorSpawnPoint.position, initiatorSpawnPoint.rotation);
     }
     void AttackEnd()
@@ -239,6 +243,7 @@ public class BossAttackScript : MonoBehaviour
     private IEnumerator RoarFreeze()
     {
         animator.SetTrigger("Roar");
+        //add roar sound here
         animator.SetBool("IsBracing", false);
         isBouncing = false;
         leftHand.enabled = true;
@@ -295,6 +300,7 @@ public class BossAttackScript : MonoBehaviour
 
         if (isBouncing && collision.gameObject.CompareTag("ground"))
         {
+            //add cannonball ground smash/bounce sound here
             float Hforce = dir * Random.Range(3, 7) *horizontalForce;
             float Vforce = jumpForce + Random.Range(-5, 15);
 
@@ -306,6 +312,7 @@ public class BossAttackScript : MonoBehaviour
         
         if (isBouncing && collision.gameObject.CompareTag("wall"))
         {
+            //add cannonball bounce sound here
             float Hforce = dir * Random.Range(3, 7) *horizontalForce;
 
             rb.linearVelocityX = dir * Hforce;

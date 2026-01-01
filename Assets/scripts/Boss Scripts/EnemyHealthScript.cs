@@ -18,6 +18,7 @@ public class EnemyHealthScript : MonoBehaviour
     private bool isFlash = false; // to make the enemy flash red (will be removed when sprites are added)
     public bool spawned = false;
 
+    private int hitCount = 0;
     private SpriteRenderer spriterenderer;
     private Color originalColor; // to make the enemy flash red (will be removed when sprites are added)
     private Rigidbody2D rb;
@@ -53,14 +54,20 @@ public class EnemyHealthScript : MonoBehaviour
     {
         if(currentHealth <= 0) {return;}
 
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         if(!invincible)
         {
+            //add damage sound here
             currentHealth -= damage;
+            hitCount++;
+            if(hitCount == 3)
+            {
+                player.GetComponent<playerHealthScript>().Heal();
+            }
             isFlash = true; // to make the enemy flash red (will be removed when sprites are added)
             BossHealthFill.fillAmount = currentHealth / maxHealth;
         }
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         PlayerMovement playerMove = player.GetComponent<PlayerMovement>();
         playerMove.TakeKnockback(0, 0);
 
@@ -78,6 +85,7 @@ public class EnemyHealthScript : MonoBehaviour
 
     void Die()
     {
+        //add death sound here
         BossAttackScript attack = GetComponent<BossAttackScript>();
         attack.isBouncing = false;
         attack.leftHand.enabled = true;
@@ -133,6 +141,7 @@ public class EnemyHealthScript : MonoBehaviour
         
         if(!spawned && collision.gameObject.CompareTag("ground"))
         {
+            //add roar sound here
             animator.SetTrigger("Roar");
             BossHealthUI.SetActive(true);
             spawned = true;
