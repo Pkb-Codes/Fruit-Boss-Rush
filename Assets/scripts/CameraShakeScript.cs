@@ -1,14 +1,26 @@
 using UnityEngine;
 using System.Collections;
+using System.Drawing;
 
 public class CameraShakeScript : MonoBehaviour
 {
     Vector3 originalPos;
+    public float zoomSpeed = 5f;
+    public float targetSize = 7f;
+    public GameObject StartMenu;
 
     void Start()
     {
         originalPos = transform.localPosition;
+        Time.timeScale = 0;
     }
+
+
+    void Update()
+    {
+        Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetSize, zoomSpeed * Time.deltaTime);
+    }
+
 
     public IEnumerator CameraShake(float magnitude, float duration)
     {
@@ -32,5 +44,27 @@ public class CameraShakeScript : MonoBehaviour
         }
 
         transform.localPosition = originalPos;
+    }
+
+    public void StartTime()
+    {
+        Time.timeScale = 1;
+        StartMenu.SetActive(false);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("camerazoom"))
+        {
+            targetSize = 13;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("camerazoom"))
+        {
+            targetSize = 7;
+        }
     }
 }

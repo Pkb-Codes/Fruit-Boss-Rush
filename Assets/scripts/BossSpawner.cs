@@ -8,7 +8,7 @@ public class BossSpawner : MonoBehaviour
     {
         GameObject player = GameObject.FindWithTag("Player");
 
-        if(Vector3.Distance(player.transform.position, transform.position) < 25 && GameObject.FindGameObjectsWithTag("enemy").Length == 3)
+        if(player.transform.position.x > 55 && player.transform.position.x < 80 && GameObject.FindGameObjectsWithTag("enemy").Length == 3)
         {
             Boss.GetComponent<BossAttackScript>().timerStop = false;
             GetComponent<Collider2D>().enabled = false;

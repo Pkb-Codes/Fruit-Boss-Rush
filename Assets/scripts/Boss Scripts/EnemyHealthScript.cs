@@ -133,6 +133,7 @@ public class EnemyHealthScript : MonoBehaviour
 
     public void Vanish()
     {
+        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameRestarter>().BossDied();
         Destroy(gameObject);
     }
 

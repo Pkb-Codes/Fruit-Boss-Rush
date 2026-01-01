@@ -82,13 +82,13 @@ public class BossAttackScript : MonoBehaviour
             StartCoroutine(RoarFreeze());
         }
 
-        // if(isIdle && !timerStop) {attackTimer += Time.deltaTime;}
+        if(isIdle && !timerStop) {attackTimer += Time.deltaTime;}
 
         //manual controls to showoff the attacks
-        if(Input.GetKeyDown(KeyCode.H)) {MeleeAttackState();}
-        if(Input.GetKeyDown(KeyCode.J)) {SeedAttackState();}
-        if(Input.GetKeyDown(KeyCode.K)) {CannonballAttackState();}
-        if(Input.GetKeyDown(KeyCode.L)) {SeedRainState();}
+        // if(Input.GetKeyDown(KeyCode.H)) {MeleeAttackState();}
+        // if(Input.GetKeyDown(KeyCode.J)) {SeedAttackState();}
+        // if(Input.GetKeyDown(KeyCode.K)) {CannonballAttackState();}
+        // if(Input.GetKeyDown(KeyCode.L)) {SeedRainState();}
 
         //phase 2
         if(health.currentHealth > 100 && health.currentHealth <= 200)

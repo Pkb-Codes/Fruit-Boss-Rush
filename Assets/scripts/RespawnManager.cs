@@ -4,6 +4,7 @@ public class RespawnManager : MonoBehaviour
 {
     [SerializeField] GameObject deathMenuUI;
     public Transform respawnpoint;
+    public Transform initialrespawnpoint;
     public Transform bossSpawnPoint;
     public GameObject Boss;
     public GameObject BossUi;
@@ -24,9 +25,12 @@ public class RespawnManager : MonoBehaviour
 
     public void Respawn()
     {
-        Time.timeScale = 1f;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = respawnpoint.position;
+        Time.timeScale = 1f;
+        Transform point;
+        if(player.GetComponent<playerHealthScript>().hasreached == true) {point = respawnpoint;}
+        else{point = initialrespawnpoint;}
+        player.transform.position = point.position;
         player.GetComponent<playerHealthScript>().Respawn();
 
         Boss.GetComponent<BossAttackScript>().Restart();

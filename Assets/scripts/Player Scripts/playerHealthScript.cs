@@ -21,10 +21,12 @@ public class playerHealthScript : MonoBehaviour
     private float flashTimer; // to make the enemy flash red (will be removed when sprites are added)
     private bool isFlash = false; // to make the enemy flash red (will be removed when sprites are added)
     private float currentHealth;
+    private bool fullHeal = false;
     private Color originalPlayerColor; // to make the enemy flash red (will be removed when sprites are added)
     private Color originalHealthbarColor;
     private SpriteRenderer spriterenderer;
     private Rigidbody2D rb;
+    public bool hasreached = false;
 
     public GameObject healthbar;
     private Image[] healthsprite;
@@ -49,9 +51,19 @@ public class playerHealthScript : MonoBehaviour
         
     }
 
-    void Update() //0 1 2 3 4
+    void Update()
     {
         float healthPerSegment = maxHealth / hearts.Length; // 30
+
+        if(fullHeal)
+        {
+            currentHealth += 1;
+            if(currentHealth >= maxHealth)
+            {
+                fullHeal = false;
+                currentHealth = maxHealth;
+            }
+        }
 
         for (int i = 0; i < hearts.Length; i++)
         {
@@ -123,5 +135,14 @@ public class playerHealthScript : MonoBehaviour
     public void Respawn()
     {
         currentHealth = maxHealth;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("respawnpoint"))
+        {
+            fullHeal = true;
+            hasreached = true;
+        }
     }
 }

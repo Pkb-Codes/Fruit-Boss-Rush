@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using NUnit.Framework;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -34,6 +33,19 @@ public class PlayerCombat : MonoBehaviour
     int SpinHitCount = 6;  //number of times spinslash damages on full interval
     float spinInterval;  //timer interval for each hit
 
+    [Header("Dash")]
+    public float dashSpeed = 18f;
+    public float dashDuration = 0.15f;
+    public float dashCooldown = 0.2f; // optional safety lock
+
+    public bool isDashing;
+    private float dashTimer;
+    private float dashCooldownTimer;
+
+    private Rigidbody2D rb;
+    private float originalGravity;
+
+
     private float abilityTimer = 0f;
     private bool abilityValid = false;
     private bool abTrigger = false;
@@ -54,12 +66,28 @@ public class PlayerCombat : MonoBehaviour
 
         spinHitbox.enabled = false;
         audioSource = GetComponent<AudioSource>();
+
+        rb = GetComponent<Rigidbody2D>();
+        originalGravity = rb.gravityScale;
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
+
+        if (dashCooldownTimer > 0f)
+        dashCooldownTimer -= Time.deltaTime;
+
+        if (isDashing)
+        {
+            dashTimer -= Time.deltaTime;
+
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+
+            if (dashTimer <= 0f)
+                EndDash();
+        }
 
         abilityBarFill.fillAmount = abilityTimer/AbilityTime;
         //SpinSlash code
@@ -130,7 +158,10 @@ public class PlayerCombat : MonoBehaviour
         }
         //spinslash code ends
 
-
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            Dash();
+        }
 
         if(timer > attackCooldown && Input.GetKey(KeyCode.I))
         {
@@ -148,6 +179,31 @@ public class PlayerCombat : MonoBehaviour
             facingDirection = 1;
         }
     }
+
+    void Dash()
+    {
+        // animator.SetTrigger("Dash");
+        if (isDashing || dashCooldownTimer > 0f)
+            return;
+
+        isDashing = true;
+        dashTimer = dashDuration;
+        dashCooldownTimer = dashCooldown;
+
+        // Direction: facing direction
+        float dir = facingDirection;
+
+        rb.gravityScale = 0f;
+        rb.linearVelocity = new Vector2(dir * dashSpeed, 0f);
+    }
+
+    void EndDash()
+    {
+        isDashing = false;
+        rb.gravityScale = originalGravity;
+    }
+
+
    
     void SlashAttackState()
     {

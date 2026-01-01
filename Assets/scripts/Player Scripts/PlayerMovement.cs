@@ -42,10 +42,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("OnGround", isStanding);
 
         //cannon move if getting knocked
-        if(!isKnocked)
+        if(!isKnocked && GetComponent<PlayerCombat>().isDashing == false)
         {
             //input reading for horizontal movement
-            if(Input.GetKey(KeyCode.A)) 
+            if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) 
             {
                 move = -1f;
                 if (!audioSource.isPlaying && isGrounded)
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetTrigger("Move");
             }
             
-            else if(Input.GetKey(KeyCode.D)) 
+            else if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) 
             {
                 move = 1f;
                 if (!audioSource.isPlaying && isGrounded)
@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         //horizontal movement
 
         //vertical movement
-        if(Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.W))
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             if(isGrounded) {
                 rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpSpeed);

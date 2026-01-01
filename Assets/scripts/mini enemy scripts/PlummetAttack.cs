@@ -43,6 +43,8 @@ public class PlummetAttack : MonoBehaviour
     private State currentState = State.Idle;
     private float timer = 0f;
     private float jumptimer = 0f;
+    private bool slamStarted = false;
+
 
     private Coroutine patrolCoroutine;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -70,14 +72,11 @@ public class PlummetAttack : MonoBehaviour
         if(currentState == State.Jumping)
         {
             TrackPlayerX();
-            if(jumptimer < jumpTime)
+            jumptimer += Time.deltaTime;
+            if(jumptimer >= jumpTime && !slamStarted)
             {
-                jumptimer += Time.deltaTime;
-            }
-            else
-            {
+                slamStarted = true;
                 jumptimer = 0f;
-                currentState = State.Slamming;
                 StartCoroutine(PrepareSlam());
             }
         }
@@ -140,11 +139,15 @@ public class PlummetAttack : MonoBehaviour
     void StartJump()
     {
         currentState = State.Jumping;
+        isGrounded = false;
+        slamStarted = false;
         
         rb.linearVelocity = Vector3.up * jumpForce;
-        isGrounded = false;
-        StopCoroutine(patrolCoroutine);
-        patrolCoroutine = null;
+        if(patrolCoroutine != null) 
+        {
+            StopCoroutine(patrolCoroutine);
+            patrolCoroutine = null;
+        }
     }
 
     void TrackPlayerX()
@@ -186,12 +189,14 @@ public class PlummetAttack : MonoBehaviour
         {
             if(currentState == State.Slamming)
                 audioSource.PlayOneShot(groundpound);
-
-            if(patrolCoroutine == null)
-                patrolCoroutine = StartCoroutine(PatrolRoutine());
+            slamStarted = false;
             isGrounded = true;
             currentState = State.Idle;
             timer = 0;
+
+            if(patrolCoroutine == null)
+                patrolCoroutine = StartCoroutine(PatrolRoutine());
+
         }
 
         if (collision.gameObject.CompareTag("Player"))

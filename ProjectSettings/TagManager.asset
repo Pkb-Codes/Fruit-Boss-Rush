@@ -9,6 +9,9 @@ TagManager:
   - wall
   - spinslasher
   - respawnmanager
+  - camerazoom
+  - gamemanager
+  - respawnpoint
   layers:
   - Default
   - TransparentFX
