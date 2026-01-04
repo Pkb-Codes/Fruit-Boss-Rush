@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using Unity.Collections;
 using UnityEngine;
 
@@ -39,6 +40,12 @@ public class PlayerMovement : MonoBehaviour
     {
 
         animator.SetBool("OnGround", isStanding);
+
+        if(transform.position.y < -22)
+        {
+            isGrounded = true;
+            isStanding = true;
+        }
 
         //cannon move if getting knocked
         if(!isKnocked && GetComponent<PlayerCombat>().isDashing == false)
@@ -91,8 +98,6 @@ public class PlayerMovement : MonoBehaviour
                 isGrounded = false;
                 isStanding = false;
                 audioSource.PlayOneShot(jump);
-
-                
             }
         }
     }
@@ -139,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
         if (legCollider.IsTouching(other))
         {
             isStanding = true;
+            isGrounded = true;
         }
     }
 }

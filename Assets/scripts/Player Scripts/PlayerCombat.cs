@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -179,23 +180,23 @@ public class PlayerCombat : MonoBehaviour
         }
         //spinslash code ends
 
-        if(Input.GetKeyDown(KeyCode.O))
+        if(Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(KeyCode.C))
         {
             Dash();
         }
 
-        if(timer > attackCooldown && Input.GetKey(KeyCode.I))
+        if(timer > attackCooldown && (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.X)))
         {
             timer = 0f;
             SlashAttackState();
         }
 
         //to see which direction the player is looking at
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             facingDirection = -1;
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             facingDirection = 1;
         }
