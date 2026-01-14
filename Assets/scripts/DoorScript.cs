@@ -21,10 +21,19 @@ public class DoorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.FindGameObjectsWithTag("enemy").Length == 3+finalarenaEnemies && Vector2.Distance(player.transform.position, transform.position) < 3)
+        if(GameObject.FindGameObjectsWithTag("enemy").Length <= 3+finalarenaEnemies)
         {
-            animator.SetTrigger("OpenDoor");
-            boxCollider.enabled = false;
+            if(Vector2.Distance(player.transform.position, transform.position) < 3)
+            {
+                animator.SetBool("Open",true);
+                boxCollider.enabled = false;
+            }
+
+            if(Vector2.Distance(player.transform.position, transform.position) > 5)
+            {
+                animator.SetBool("Open",false);
+                boxCollider.enabled = true;
+            }
         }
     }
 }

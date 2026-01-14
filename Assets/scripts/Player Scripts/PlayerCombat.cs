@@ -16,7 +16,7 @@ public class PlayerCombat : MonoBehaviour
     public int attackDamage = 20;
     public int knockbackForce = 2;
     public Animator SlashAnimator;
-    public Image abilityBarFill;
+    // public Image abilityBarFill;
 
     public LayerMask enemyLayer;
     public float attackCooldown = 3f;
@@ -26,15 +26,15 @@ public class PlayerCombat : MonoBehaviour
     private int facingDirection = 1; 
 
 
-    [Header("Ability Things")]
-    public int spinSlashDamage = 10;
-    public float AbilityTime = 7f; //How long the ability lasts
-    public int CooldownTime = 10; //How long it takes to cool down
-    public BoxCollider2D spinHitbox;
+    // [Header("Ability Things")]
+    // public int spinSlashDamage = 10;
+    // public float AbilityTime = 7f; //How long the ability lasts
+    // public int CooldownTime = 10; //How long it takes to cool down
+    // public BoxCollider2D spinHitbox;
 
-    float spinTickTimer = 0f;  //timer to make spinslash deal damage
-    int SpinHitCount = 6;  //number of times spinslash damages on full interval
-    float spinInterval;  //timer interval for each hit
+    // float spinTickTimer = 0f;  //timer to make spinslash deal damage
+    // int SpinHitCount = 6;  //number of times spinslash damages on full interval
+    // float spinInterval;  //timer interval for each hit
 
     [Header("Dash")]
     public float dashSpeed = 18f;
@@ -49,13 +49,13 @@ public class PlayerCombat : MonoBehaviour
     private float originalGravity;
 
 
-    private float abilityTimer = 0f;
-    private bool abilityValid = false;
-    private bool abTrigger = false;
+    // private float abilityTimer = 0f;
+    // private bool abilityValid = false;
+    // private bool abTrigger = false;
     private Animator animator;
 
-    HashSet<EnemyHealthScript> enemies = new HashSet<EnemyHealthScript>();
-    HashSet<MiniEnemyHealth> miniEnemies = new HashSet<MiniEnemyHealth>();
+    // HashSet<EnemyHealthScript> enemies = new HashSet<EnemyHealthScript>();
+    // HashSet<MiniEnemyHealth> miniEnemies = new HashSet<MiniEnemyHealth>();
 
     // private EnemyHealthScript enemy;
     // private MiniEnemyHealth minienemy;
@@ -64,17 +64,17 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
-        abilityTimer = AbilityTime;
+        // abilityTimer = AbilityTime;
         animator = GetComponent<Animator>();
 
-        spinHitbox.enabled = false;
+        // spinHitbox.enabled = false;
 
         rb = GetComponent<Rigidbody2D>();
         originalGravity = rb.gravityScale;
     }
 
     // Update is called once per frame
-    private bool spined = false;
+    // private bool spined = false;
     void Update()
     {
         timer += Time.deltaTime;
@@ -92,92 +92,92 @@ public class PlayerCombat : MonoBehaviour
                 EndDash();
         }
 
-        abilityBarFill.fillAmount = abilityTimer/AbilityTime;
+        // abilityBarFill.fillAmount = abilityTimer/AbilityTime;
         //SpinSlash code
-        {
-            if(spined)
-            {
-                audioSource.volume = 10f;
-                audioSource.clip = spin;
-                audioSource.time = 1f;
-                audioSource.Play();
+        // {
+        //     if(spined)
+        //     {
+        //         audioSource.volume = 10f;
+        //         audioSource.clip = spin;
+        //         audioSource.time = 1f;
+        //         audioSource.Play();
 
-                spined = false;
-            }
+        //         spined = false;
+        //     }
 
-            if(Input.GetKey(KeyCode.P) && abilityValid == false && abTrigger == false)
-            {
-                abTrigger = true; //triggers the ability period
-                abilityValid = true; //player is able to use ability now
+        //     if(Input.GetKey(KeyCode.P) && abilityValid == false && abTrigger == false)
+        //     {
+        //         abTrigger = true; //triggers the ability period
+        //         abilityValid = true; //player is able to use ability now
 
-                spinTickTimer = 0f;
-                spinInterval = AbilityTime / SpinHitCount;
-            }
+        //         spinTickTimer = 0f;
+        //         spinInterval = AbilityTime / SpinHitCount;
+        //     }
 
-            if(abTrigger == true && abilityValid == true)
-            {
-                abilityTimer -= Time.deltaTime; //ability period is decreasing after being activated
-            }
+        //     if(abTrigger == true && abilityValid == true)
+        //     {
+        //         abilityTimer -= Time.deltaTime; //ability period is decreasing after being activated
+        //     }
 
-            if(abilityTimer < 0)
-            {
-                abilityTimer = 0;
-                abilityValid = false; //switches to cooldown period after using ability, now ability is invalid
-                animator.SetBool("IsSpinslash", false);
+        //     if(abilityTimer < 0)
+        //     {
+        //         abilityTimer = 0;
+        //         abilityValid = false; //switches to cooldown period after using ability, now ability is invalid
+        //         animator.SetBool("IsSpinslash", false);
 
-                audioSource.Stop();
-                spined = false;
+        //         audioSource.Stop();
+        //         spined = false;
 
-                enemies.Clear();
-                miniEnemies.Clear();
-                spinHitbox.enabled = false;
-            }
+        //         enemies.Clear();
+        //         miniEnemies.Clear();
+        //         spinHitbox.enabled = false;
+        //     }
 
-            if(abilityValid == false && abTrigger == true) //cooldown period maths
-            {
-                float refillerConstant = CooldownTime/AbilityTime;
+        //     if(abilityValid == false && abTrigger == true) //cooldown period maths
+        //     {
+        //         float refillerConstant = CooldownTime/AbilityTime;
 
-                abilityTimer += (Time.deltaTime)/refillerConstant;
+        //         abilityTimer += (Time.deltaTime)/refillerConstant;
                 
-                if(abilityTimer > AbilityTime)
-                {
-                    abTrigger = false;
-                    abilityTimer = AbilityTime;
-                }
-            }
+        //         if(abilityTimer > AbilityTime)
+        //         {
+        //             abTrigger = false;
+        //             abilityTimer = AbilityTime;
+        //         }
+        //     }
 
-            if(Input.GetKeyDown(KeyCode.P) && abilityValid)
-            {
-                spinHitbox.enabled = true;
-                animator.SetBool("IsSpinslash", true);
+        //     if(Input.GetKeyDown(KeyCode.P) && abilityValid)
+        //     {
+        //         spinHitbox.enabled = true;
+        //         animator.SetBool("IsSpinslash", true);
 
-                spined = true;
-            }
+        //         spined = true;
+        //     }
 
-            if(Input.GetKeyUp(KeyCode.P) && abilityValid)
-            {
-                spinHitbox.enabled = false;
-                animator.SetBool("IsSpinslash", false);
+        //     if(Input.GetKeyUp(KeyCode.P) && abilityValid)
+        //     {
+        //         spinHitbox.enabled = false;
+        //         animator.SetBool("IsSpinslash", false);
 
-                audioSource.Stop();
-                spined = false;
+        //         audioSource.Stop();
+        //         spined = false;
 
-                enemies.Clear();
-                miniEnemies.Clear();
-            }
+        //         enemies.Clear();
+        //         miniEnemies.Clear();
+        //     }
 
-            //makes spinslash deal damage spinHitCount times in total
-            if(spinHitbox.enabled == true)
-            {
-                spinTickTimer += Time.deltaTime;
+        //     //makes spinslash deal damage spinHitCount times in total
+        //     if(spinHitbox.enabled == true)
+        //     {
+        //         spinTickTimer += Time.deltaTime;
 
-                if(spinTickTimer >= spinInterval)
-                {
-                    SpinSlash();
-                    spinTickTimer = 0f;
-                }
-            }
-        }
+        //         if(spinTickTimer >= spinInterval)
+        //         {
+        //             SpinSlash();
+        //             spinTickTimer = 0f;
+        //         }
+        //     }
+        // }
         //spinslash code ends
 
         if(Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(KeyCode.C))
@@ -268,49 +268,49 @@ public class PlayerCombat : MonoBehaviour
             }
         }
     }
-    void SpinSlash()
-    {
-        foreach(EnemyHealthScript e in enemies)
-        {
-            if(e != null)
-            {
-                e.TakeDamage(spinSlashDamage);
-                e.Knockback(facingDirection, knockbackForce);
-            }
-        }
+    // void SpinSlash()
+    // {
+    //     foreach(EnemyHealthScript e in enemies)
+    //     {
+    //         if(e != null)
+    //         {
+    //             e.TakeDamage(spinSlashDamage);
+    //             e.Knockback(facingDirection, knockbackForce);
+    //         }
+    //     }
         
-        foreach(MiniEnemyHealth m in miniEnemies)
-        {
-            if(m != null)
-            {
-                m.TakeDamage(spinSlashDamage);
-                m.TakeKnockback(knockbackForce/2, transform.position.x);
-            }
-        }
-    }
+    //     foreach(MiniEnemyHealth m in miniEnemies)
+    //     {
+    //         if(m != null)
+    //         {
+    //             m.TakeDamage(spinSlashDamage);
+    //             m.TakeKnockback(knockbackForce/2, transform.position.x);
+    //         }
+    //     }
+    // }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(spinHitbox.enabled && collision.CompareTag("enemy"))
-        {
-            EnemyHealthScript e = collision.GetComponentInParent<EnemyHealthScript>();
-            if(e != null) {enemies.Add(e);}
-            MiniEnemyHealth m = collision.GetComponent<MiniEnemyHealth>();
-            if(m != null) {miniEnemies.Add(m);}
-        }
-    }
+    // void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if(spinHitbox.enabled && collision.CompareTag("enemy"))
+    //     {
+    //         EnemyHealthScript e = collision.GetComponentInParent<EnemyHealthScript>();
+    //         if(e != null) {enemies.Add(e);}
+    //         MiniEnemyHealth m = collision.GetComponent<MiniEnemyHealth>();
+    //         if(m != null) {miniEnemies.Add(m);}
+    //     }
+    // }
 
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (spinHitbox.enabled && collision.CompareTag("enemy"))
-        {
-            EnemyHealthScript e = collision.GetComponentInParent<EnemyHealthScript>();
-            if (e != null) enemies.Remove(e);
+    // void OnTriggerExit2D(Collider2D collision)
+    // {
+    //     if (spinHitbox.enabled && collision.CompareTag("enemy"))
+    //     {
+    //         EnemyHealthScript e = collision.GetComponentInParent<EnemyHealthScript>();
+    //         if (e != null) enemies.Remove(e);
 
-            MiniEnemyHealth m = collision.GetComponent<MiniEnemyHealth>();
-            if (m != null) miniEnemies.Remove(m);
-        }
-    }
+    //         MiniEnemyHealth m = collision.GetComponent<MiniEnemyHealth>();
+    //         if (m != null) miniEnemies.Remove(m);
+    //     }
+    // }
 
 
     private void OnDrawGizmosSelected()

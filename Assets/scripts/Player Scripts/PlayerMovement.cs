@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         PlayerCombat playerAttack = GetComponent<PlayerCombat>();
-        if(playerAttack.spinHitbox.enabled == true) {return;}
+        // if(playerAttack.spinHitbox.enabled == true) {return;}
 
         knockbackTimer = 0f;
         isKnocked = true;
