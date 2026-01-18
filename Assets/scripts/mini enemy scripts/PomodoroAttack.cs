@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PomodoroAttack : MonoBehaviour
 {
+
+    public GameObject label;
+    private SpriteRenderer labelsprite;
     public AudioClip beep;
     public AudioClip boom;
     private AudioSource audioSource;
@@ -35,6 +38,8 @@ public class PomodoroAttack : MonoBehaviour
         mySprite = GetComponent<SpriteRenderer>();
         originalColor = mySprite.color;
         audioSource = GetComponent<AudioSource>();
+        
+        labelsprite = label.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -106,6 +111,7 @@ public class PomodoroAttack : MonoBehaviour
 
         // Disable enemy visuals to simulate "destroyed"
         mySprite.enabled = false;
+        labelsprite.enabled = false;
         audioSource.PlayOneShot(boom);
         Destroy(gameObject, boom.length);
     }

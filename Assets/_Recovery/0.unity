@@ -2983,7 +2983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMusicController
   musicSource: {fileID: 8300000, guid: 2199aacd18a9af046b5cddecaf7911d3, type: 3}
-  fadeDuration: 2
+  fadeDuration: 4
 --- !u!4 &701679326
 Transform:
   m_ObjectHideFlags: 0
@@ -3594,7 +3594,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.775
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -8651,11 +8651,11 @@ PrefabInstance:
       objectReference: {fileID: 1094776051}
     - target: {fileID: 3239824530352190172, guid: c798d7c2e9fff2c44926ff66c1b1fdfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -86.42
+      value: -84.3
       objectReference: {fileID: 0}
     - target: {fileID: 3239824530352190172, guid: c798d7c2e9fff2c44926ff66c1b1fdfe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.45
+      value: -16.43
       objectReference: {fileID: 0}
     - target: {fileID: 3239824530352190172, guid: c798d7c2e9fff2c44926ff66c1b1fdfe, type: 3}
       propertyPath: m_LocalPosition.z

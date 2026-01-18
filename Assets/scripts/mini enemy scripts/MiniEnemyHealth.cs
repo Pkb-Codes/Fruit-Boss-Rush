@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MiniEnemyHealth : MonoBehaviour
 {
+    public GameObject label;
+    private SpriteRenderer labelsprite;
     public AudioClip hurt;
     public AudioClip die;
     private AudioSource audioSource;
@@ -28,6 +30,7 @@ public class MiniEnemyHealth : MonoBehaviour
         originalColor = sr.color;
         mySprite = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
+        labelsprite = label.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -81,6 +84,7 @@ public class MiniEnemyHealth : MonoBehaviour
             //these two lines can be changed to have a death anim play if any
             mySprite.enabled = false;
             boxCollider.enabled = false;
+            labelsprite.enabled = false;
             isalive = false;
             audioSource.PlayOneShot(die);
             Destroy(gameObject, die.length);

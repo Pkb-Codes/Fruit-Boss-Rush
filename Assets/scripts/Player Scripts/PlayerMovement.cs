@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private int upperlimit = 0;
+    private int middlelimit = -10;
 
     public float moveSpeed = 10f;
     public float jumpSpeed = 10f;
@@ -25,6 +27,17 @@ public class PlayerMovement : MonoBehaviour
     bool isKnocked = false;
     bool isGrounded = true;
     bool isStanding = true;
+    bool ceilingKnock = false;
+
+
+    public GameObject label;
+    private SpriteRenderer labelsprite;
+    private float alpha = 1f;
+    public float staytime = 2f;
+    private float timeelapsed = 0f;
+    public float fadetime = 1f;
+    private Color currentColor;
+    public bool is67 = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,11 +46,49 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        labelsprite = label.GetComponent<SpriteRenderer>();
+        currentColor = labelsprite.color;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(is67 == true)
+        {
+        if(timeelapsed > staytime)
+        {
+            if((timeelapsed - staytime) < fadetime)
+            {
+                alpha = Mathf.Lerp(1f, 0f, (timeelapsed-staytime)/fadetime);
+                labelsprite.color = new Color(currentColor.r, currentColor.g, currentColor.b, alpha);
+                timeelapsed += Time.deltaTime;
+
+            }
+            else
+                labelsprite.color = new Color(currentColor.r, currentColor.g, currentColor.b, 0f);
+        }
+        else
+            timeelapsed += Time.deltaTime;
+        }
+
+        //ceilingknock is to prevent player from flying off during the shakecamera scenes
+        if(ceilingKnock == false)
+        {
+            if(transform.position.y < upperlimit && transform.position.y >= middlelimit)
+                ceilingKnock = true;
+        }
+
+        if(ceilingKnock == true)
+        {
+            if(transform.position.y >= upperlimit)
+            {
+                ceilingKnock = false;
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f);
+            }
+
+            if(transform.position.y < middlelimit)
+                ceilingKnock = false;
+        }
 
         animator.SetBool("OnGround", isStanding);
 
@@ -147,4 +198,7 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
         }
     }
+
+    
 }
+
