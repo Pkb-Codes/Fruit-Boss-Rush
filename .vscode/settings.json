@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Fruits-Boss-Rush.slnx"
+    "dotnet.defaultSolution": "Fruit-Boss-Rush.slnx"
 }
